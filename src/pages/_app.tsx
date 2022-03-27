@@ -1,6 +1,7 @@
 import { AppProps } from "next/dist/shared/lib/router/router";
 import "tailwindcss/tailwind.css";
 import Head from "next/head";
+import { Layout } from "../components/layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

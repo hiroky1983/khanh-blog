@@ -18,14 +18,9 @@ type Props = {
 
 export const Blog: NextPage<Props> = ({ blog }) => {
   return (
-    <div className="h-screen w-screen">
-      <Header />
-      <main className="flex justify-center w-full">
-        <div key={blog.id} className="bg-gray-300">
-          <h1>{blog.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
-        </div>
-      </main>
+    <div key={blog.id} className="h-4/5">
+      <h1 className="py-2">{blog.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from "next";
 import { Header } from "../components/layout/Header";
 import Link from "next/link";
 import { client } from "../../libs/client";
+import { UserCard } from "../components/ui/UserCard";
 
 export type Blog = {
   id: string;
@@ -19,11 +20,10 @@ type Props = {
 
 const Home: NextPage<Props> = ({ blog }) => {
   return (
-    <div className="min-h-screen">
-      <main>
-        <Header />
+    <>
+      <div className="flex justify-around py-6">
         {blog.map(({ id, title }) => (
-          <ul key={id}>
+          <ul key={id} className="grid grid-flow-row">
             <li>
               <Link href={`/blog/${id}`}>
                 <a>{title}</a>
@@ -31,8 +31,9 @@ const Home: NextPage<Props> = ({ blog }) => {
             </li>
           </ul>
         ))}
-      </main>
-    </div>
+        <UserCard />
+      </div>
+    </>
   );
 };
 

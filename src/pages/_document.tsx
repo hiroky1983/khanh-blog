@@ -5,7 +5,7 @@ type Props = {};
 class Document extends NextDocument<Props> {
   render() {
     return (
-      <Html lang="ja">
+      <Html lang="vi">
         <Head />
         <body>
           <Main />
