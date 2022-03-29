@@ -6,6 +6,7 @@ export type Blog = {
   revisedAt: string;
   title: string;
   body: string;
+  tag: string;
   eyeCatchImage?: {
     url: string;
     height: number;

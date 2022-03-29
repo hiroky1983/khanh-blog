@@ -4,6 +4,8 @@ import { client } from "../../libs/client";
 import { ListCard } from "../components/ui/ListCard";
 import { UserCard } from "../components/ui/UserCard";
 import { Blog, Profile } from "../type/type";
+import { Month } from "@mantine/dates";
+import { AdjustmentsHorizontal } from "tabler-icons-react";
 
 type Props = {
   blog: Blog[];
@@ -15,7 +17,13 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
     <>
       <div className="flex py-6">
         <ul className="grid flex-grow justify-center gap-2 pt-16">
-          {blog.map(({ id, title, eyeCatchImage, createdAt }) => (
+          <AdjustmentsHorizontal
+            size={34}
+            strokeWidth={1}
+            color={"#12B981"}
+            className="hover:bg-opacity-70 hover:bg-gray-200 rounded-lg hover:cursor-pointer"
+          />
+          {blog.map(({ id, title, eyeCatchImage, createdAt, tag }, i) => (
             <>
               <li key={id}>
                 <Link href={`/blog/${id}`}>
@@ -24,6 +32,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
                       title={title}
                       eyeCatchImage={eyeCatchImage}
                       createdAt={createdAt}
+                      tag={tag}
                     />
                   </a>
                 </Link>
@@ -37,6 +46,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             avater={profile.avater}
             discription={profile.discription}
           />
+          <Month month={new Date()} className="fixed top-72 right-4" />
         </div>
       </div>
     </>
