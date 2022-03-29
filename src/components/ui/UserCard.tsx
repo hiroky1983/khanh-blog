@@ -1,6 +1,6 @@
-import { Card, Text, Button, useMantineTheme, Avatar } from "@mantine/core";
+import { Card, Text, useMantineTheme, Avatar } from "@mantine/core";
 import { VFC } from "react";
-import { Profile } from "../../pages";
+import { Profile } from "../../type/type";
 
 export const UserCard: VFC<Profile> = (props) => {
   const { name, avater, discription } = props;
@@ -21,15 +21,6 @@ export const UserCard: VFC<Profile> = (props) => {
         <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
           {discription}
         </Text>
-
-        <Button
-          variant="light"
-          color="blue"
-          fullWidth
-          style={{ marginTop: 14 }}
-        >
-          Book classic tour now
-        </Button>
       </Card>
     </div>
   );
