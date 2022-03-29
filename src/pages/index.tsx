@@ -20,16 +20,16 @@ type Props = {
 const Home: NextPage<Props> = ({ blog }) => {
   return (
     <>
-      <div className="flex justify-around py-6">
-        {blog.map(({ id, title }) => (
-          <ul key={id} className="grid grid-flow-row">
-            <li>
+      <div className="flex py-6">
+        <ul className="grid flex-grow justify-center">
+          {blog.map(({ id, title }) => (
+            <li key={id}>
               <Link href={`/blog/${id}`}>
                 <a>{title}</a>
               </Link>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
         <UserCard />
       </div>
     </>

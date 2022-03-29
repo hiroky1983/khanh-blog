@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client } from "../../../libs/client";
-import { Header } from "../../components/layout/Header";
+import { ChevronLeft } from "tabler-icons-react";
+import Link from "next/link";
 
 export type Blog = {
   id: string;
@@ -18,7 +19,12 @@ type Props = {
 
 export const Blog: NextPage<Props> = ({ blog }) => {
   return (
-    <div key={blog.id} className="h-4/5">
+    <div key={blog.id}>
+      <Link href="/">
+        <a>
+          <ChevronLeft />
+        </a>
+      </Link>
       <h1 className="py-2">{blog.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
     </div>

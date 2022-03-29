@@ -17,9 +17,11 @@ export const UserCard = () => {
   return (
     <div className="w-60 p-auto">
       <Card shadow="sm" p="lg">
-        <Card.Section className="flex items-center">
+        <Card.Section className="flex items-center p-4">
           <Avatar radius="xl" size={80} />
-          <Text size="lg">kan</Text>
+          <Text size="lg" className="ml-4">
+            kan
+          </Text>
         </Card.Section>
 
         <Group
