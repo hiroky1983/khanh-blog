@@ -3,7 +3,7 @@ import { client } from "../../../libs/client";
 import { ChevronLeft } from "tabler-icons-react";
 import Link from "next/link";
 
-export type Blog = {
+type Blog = {
   id: string;
   createdAt: string;
   updatedAt: string;
@@ -11,6 +11,11 @@ export type Blog = {
   revisedAt: string;
   title: string;
   body: string;
+  eyeCatchImage?: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
 
 type Props = {

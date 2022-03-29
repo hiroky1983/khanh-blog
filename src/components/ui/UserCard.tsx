@@ -1,10 +1,4 @@
-import {
-  Card,
-  Text,
-  Button,
-  useMantineTheme,
-  Avatar,
-} from "@mantine/core";
+import { Card, Text, Button, useMantineTheme, Avatar } from "@mantine/core";
 import { VFC } from "react";
 import { Profile } from "../../pages";
 
@@ -15,7 +9,7 @@ export const UserCard: VFC<Profile> = (props) => {
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
   return (
-    <div className="w-60 p-auto">
+    <div className="w-60 p-auto fixed top-24 right-4">
       <Card shadow="sm" p="lg">
         <Card.Section className="flex items-center p-4">
           <Avatar radius="xl" size={80} src={avater.url} />
