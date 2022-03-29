@@ -1,11 +1,4 @@
-import {
-  Card,
-  Text,
-  Button,
-  useMantineTheme,
-  Avatar,
-  Image,
-} from "@mantine/core";
+import { Card, Text, Image } from "@mantine/core";
 import { VFC } from "react";
 import { getToday } from "../function/Date";
 
@@ -25,7 +18,7 @@ export const ListCard: VFC<Props> = (props) => {
 
   return (
     <Card shadow="lg" className="bg-white flex h-32" radius="md">
-      <Card.Section className="flex justify-center items-center p-0">
+      <Card.Section className="flex justify-center p-0">
         <Image src={eyeCatchImage?.url} width={250} />
         <Card.Section className="flex flex-col justify-center px-6">
           <Text size="lg" className="p-8">
