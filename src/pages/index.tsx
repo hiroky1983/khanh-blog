@@ -13,11 +13,27 @@ export type Blog = {
   body: string;
 };
 
-type Props = {
-  blog: Blog[];
+export type Profile = {
+  id?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
+  revisedAt?: string;
+  name: string;
+  avater: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  discription: string;
 };
 
-const Home: NextPage<Props> = ({ blog }) => {
+type Props = {
+  blog: Blog[];
+  profile: Profile;
+};
+
+const Home: NextPage<Props> = ({ blog, profile }) => {
   return (
     <>
       <div className="flex py-6">
@@ -30,7 +46,11 @@ const Home: NextPage<Props> = ({ blog }) => {
             </li>
           ))}
         </ul>
-        <UserCard />
+        <UserCard
+          name={profile.name}
+          avater={profile.avater}
+          discription={profile.discription}
+        />
       </div>
     </>
   );
@@ -38,9 +58,11 @@ const Home: NextPage<Props> = ({ blog }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({ endpoint: "blog" });
+  const myData = await client.get({ endpoint: "profile" });
   return {
     props: {
       blog: data.contents,
+      profile: myData,
     },
   };
 };

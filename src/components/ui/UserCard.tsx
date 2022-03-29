@@ -1,15 +1,15 @@
 import {
   Card,
-  Image,
   Text,
-  Badge,
   Button,
-  Group,
   useMantineTheme,
   Avatar,
 } from "@mantine/core";
+import { VFC } from "react";
+import { Profile } from "../../pages";
 
-export const UserCard = () => {
+export const UserCard: VFC<Profile> = (props) => {
+  const { name, avater, discription } = props;
   const theme = useMantineTheme();
 
   const secondaryColor =
@@ -18,22 +18,14 @@ export const UserCard = () => {
     <div className="w-60 p-auto">
       <Card shadow="sm" p="lg">
         <Card.Section className="flex items-center p-4">
-          <Avatar radius="xl" size={80} />
+          <Avatar radius="xl" size={80} src={avater.url} />
           <Text size="lg" className="ml-4">
-            kan
+            {name}
           </Text>
         </Card.Section>
 
-        <Group
-          position="apart"
-          style={{ marginBottom: 5, marginTop: theme.spacing.sm }}
-        >
-          <Text weight={500}>私は〇〇です</Text>
-        </Group>
-
         <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
-          With Fjord Tours you can explore more of the magical fjord landscapes
-          with tours and activities on and around the fjords of Norway
+          {discription}
         </Text>
 
         <Button
