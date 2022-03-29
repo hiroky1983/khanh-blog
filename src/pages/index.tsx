@@ -3,36 +3,7 @@ import Link from "next/link";
 import { client } from "../../libs/client";
 import { ListCard } from "../components/ui/ListCard";
 import { UserCard } from "../components/ui/UserCard";
-
-export type Blog = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  title: string;
-  body: string;
-  eyeCatchImage?: {
-    url: string;
-    height: number;
-    width: number;
-  };
-};
-
-export type Profile = {
-  id?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  publishedAt?: string;
-  revisedAt?: string;
-  name: string;
-  avater: {
-    url: string;
-    height?: number;
-    width?: number;
-  };
-  discription: string;
-};
+import { Blog, Profile } from "../type/type";
 
 type Props = {
   blog: Blog[];
@@ -74,10 +45,11 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({ endpoint: "blog" });
-  const myData = await client.get({ endpoint: "profile" });
+  const myData: Profile = await client.get({ endpoint: "profile" });
+  const blog: Blog[] = data.contents;
   return {
     props: {
-      blog: data.contents,
+      blog,
       profile: myData,
     },
   };

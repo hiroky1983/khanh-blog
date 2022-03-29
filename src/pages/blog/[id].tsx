@@ -2,27 +2,13 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client } from "../../../libs/client";
 import { ChevronLeft } from "tabler-icons-react";
 import Link from "next/link";
-
-type Blog = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  title: string;
-  body: string;
-  eyeCatchImage?: {
-    url: string;
-    height: number;
-    width: number;
-  };
-};
+import { Blog } from "../../type/type";
 
 type Props = {
   blog: Blog;
 };
 
-export const Blog: NextPage<Props> = ({ blog }) => {
+export const BlogPage: NextPage<Props> = ({ blog }) => {
   return (
     <div key={blog.id}>
       <Link href="/">
@@ -44,7 +30,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id;
-  const data = await client.get({ endpoint: "blog", contentId: id as string });
+  const data: Blog = await client.get({
+    endpoint: "blog",
+    contentId: id as string,
+  });
   return {
     props: {
       blog: data,
@@ -52,4 +41,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default Blog;
+export default BlogPage;
