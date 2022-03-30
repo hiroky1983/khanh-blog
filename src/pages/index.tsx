@@ -6,6 +6,7 @@ import { UserCard } from "../components/ui/UserCard";
 import { Blog, Profile } from "../type/type";
 import { Month } from "@mantine/dates";
 import { SearchSecction } from "../components/ui/SearchSecction";
+import { useState } from "react";
 
 type Props = {
   blog: Blog[];
@@ -13,6 +14,8 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ blog, profile }) => {
+  const [date, setDate] = useState(new Date());
+
   return (
     <>
       <div className="flex py-6">
@@ -40,8 +43,15 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             name={profile.name}
             avater={profile.avater}
             discription={profile.discription}
+            facebookLink={profile.facebookLink}
+            tiktokLink={profile.tiktokLink}
           />
-          <Month month={new Date()} className="fixed top-72 right-6" />
+          <Month
+            month={date}
+            value={date}
+            onChange={setDate}
+            className="fixed bottom-60 right-12"
+          />
         </div>
       </div>
     </>

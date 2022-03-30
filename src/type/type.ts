@@ -27,4 +27,6 @@ export type Profile = {
     width?: number;
   };
   discription: string;
+  facebookLink?: string;
+  tiktokLink?: string;
 };
