@@ -25,14 +25,22 @@ export const ListCard: VFC<Props> = (props) => {
       radius="md"
     >
       <Card.Section className="flex justify-center p-0">
-        <Image src={eyeCatchImage?.url} width={250} />
-        <Card.Section className="flex flex-col justify-center px-6">
-          <Text size="lg" className="p-8">
+        <Image
+          src={eyeCatchImage?.url}
+          width={200}
+          className="absolute left-0 top-0"
+        />
+        <Card.Section className="flex flex-col justify-between">
+          <Text size="lg" className="pt-2 pr-8 pl-2">
             {title}
           </Text>
 
           <Card.Section className="flex">
-            {tag && <Badge color="teal">{tag}</Badge>}
+            {tag && (
+              <Badge color="teal" className="absolute bottom-2 right-40">
+                {tag}
+              </Badge>
+            )}
             <Text size="xs" className="absolute bottom-2 right-4">
               {day}
             </Text>

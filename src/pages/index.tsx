@@ -18,12 +18,12 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
 
   return (
     <>
-      <div className="flex py-6">
-        <ul className="grid flex-grow justify-center gap-2 pt-16">
+      <div className="lg:flex py-6">
+        <ul className="grid lg:flex-grow lg:justify-center gap-2 pt-16">
           <SearchSecction />
           {blog.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
             <>
-              <li key={id}>
+              <li key={id} className={`lg:w-[499px]`}>
                 <Link href={`/blog/${id}`}>
                   <a>
                     <ListCard
@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             </>
           ))}
         </ul>
-        <div className="relative">
+        <div className="relative py-2">
           <UserCard
             name={profile.name}
             avater={profile.avater}
@@ -46,11 +46,13 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             facebookLink={profile.facebookLink}
             tiktokLink={profile.tiktokLink}
           />
+
           <Month
+            size="xs"
             month={date}
             value={date}
             onChange={setDate}
-            className="fixed bottom-60 right-12"
+            className="lg:fixed lg:bottom-60 lg:right-8"
           />
         </div>
       </div>
