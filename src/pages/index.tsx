@@ -18,7 +18,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
 
   return (
     <>
-      <div className="lg:flex py-6">
+      <div className="lg:flex py-6 mx-4">
         <ul className="grid lg:flex-grow lg:justify-center gap-2 pt-16">
           <SearchSecction />
           {blog.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             </>
           ))}
         </ul>
-        <div className="relative py-2">
+        <div className="relative">
           <UserCard
             name={profile.name}
             avater={profile.avater}
@@ -47,13 +47,13 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             tiktokLink={profile.tiktokLink}
           />
 
-          <Month
+          {/* <Month
             size="xs"
             month={date}
             value={date}
             onChange={setDate}
             className="lg:fixed lg:bottom-60 lg:right-8"
-          />
+          /> */}
         </div>
       </div>
     </>
