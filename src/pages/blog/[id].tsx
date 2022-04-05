@@ -10,13 +10,13 @@ type Props = {
 
 export const BlogPage: NextPage<Props> = ({ blog }) => {
   return (
-    <div key={blog.id} className="bg-white mx-auto w-1/3 p-4">
+    <div key={blog.id} className="bg-white mx-auto w-2/3 p-12 h-full">
       <Link href="/">
         <a>
           <ChevronLeft />
         </a>
       </Link>
-      <h1 className="py-2">{blog.title}</h1>
+      <h1 className="py-6 font-bold text-3xl">{blog.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
     </div>
   );
