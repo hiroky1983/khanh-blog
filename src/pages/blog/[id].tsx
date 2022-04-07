@@ -10,7 +10,10 @@ type Props = {
 
 export const BlogPage: NextPage<Props> = ({ blog }) => {
   return (
-    <div key={blog.id} className="bg-white mx-auto w-2/3 p-12 h-full">
+    <div
+      key={blog.id}
+      className="bg-white rounded-lg shadow-md mx-auto lg:w-2/3 p-12 h-full"
+    >
       <Link href="/">
         <a>
           <ChevronLeft />

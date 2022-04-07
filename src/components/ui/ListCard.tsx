@@ -25,7 +25,7 @@ export const ListCard: VFC<Props> = (props) => {
       radius="md"
     >
       <Card.Section className="flex justify-center p-0">
-        <Image src={eyeCatchImage?.url} width={200} />
+        <Image src={eyeCatchImage?.url} width={250} fit="cover" />
         <Card.Section>
           <Text size="lg" className="pt-2 pr-8 pl-2">
             {title}

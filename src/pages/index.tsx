@@ -18,7 +18,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
 
   return (
     <>
-      <div className="lg:flex py-6 mx-4">
+      <div className="lg:flex mx-4">
         <ul className="grid lg:flex-grow lg:justify-center gap-2 pt-16">
           <SearchSecction />
           {blog.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
