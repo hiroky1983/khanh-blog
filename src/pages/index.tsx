@@ -14,7 +14,7 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ blog, profile }) => {
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
 
   return (
     <>

@@ -3,12 +3,16 @@ import { client } from "../../../libs/client";
 import { ChevronLeft } from "tabler-icons-react";
 import Link from "next/link";
 import { Blog } from "../../type/type";
+import { getToday } from "../../components/function/Date";
+import { Calendar } from "tabler-icons-react";
 
 type Props = {
   blog: Blog;
 };
 
 export const BlogPage: NextPage<Props> = ({ blog }) => {
+  const day = getToday(blog.createdAt).yearToDate;
+
   return (
     <div
       key={blog.id}
@@ -20,6 +24,10 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
         </a>
       </Link>
       <h1 className="py-6 font-bold text-3xl">{blog.title}</h1>
+      <div className="mb-4 flex text-gray-400">
+        <Calendar />
+        {day}
+      </div>
       <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
     </div>
   );
