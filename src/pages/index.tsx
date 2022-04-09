@@ -19,8 +19,8 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
   return (
     <>
       <div className="lg:flex mx-4">
-        <ul className="grid lg:flex-grow lg:justify-center gap-2 pt-16">
-          <SearchSecction />
+        <ul className="grid lg:flex-grow lg:justify-center gap-3 pt-16">
+          {/* <SearchSecction /> */}
           {blog.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
             <>
               <li key={id} className={`lg:w-[499px]`}>
@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             </>
           ))}
         </ul>
-        <div className="relative">
+        <div className="hidden lg:relative lg:block">
           <UserCard
             name={profile.name}
             avater={profile.avater}

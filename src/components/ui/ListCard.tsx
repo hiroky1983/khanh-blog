@@ -21,11 +21,13 @@ export const ListCard: VFC<Props> = (props) => {
   return (
     <Card
       shadow="lg"
-      className="bg-white flex h-32 hover:-translate-y-1 hover:shadow-xl p-0"
+      className="bg-white flex hover:-translate-y-1 hover:shadow-xl p-0 lg:h-26"
       radius="md"
     >
       <Card.Section className="flex">
-        <Image src={eyeCatchImage?.url} width={250} />
+        <Card.Section className="h-32">
+          <Image src={eyeCatchImage?.url} width={250} />
+        </Card.Section>
         <Card.Section className="p-8 grid gap-4 lg:gap-6">
           <Text size="lg">{title}</Text>
 
