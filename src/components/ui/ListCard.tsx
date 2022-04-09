@@ -21,25 +21,21 @@ export const ListCard: VFC<Props> = (props) => {
   return (
     <Card
       shadow="lg"
-      className="bg-white flex h-32 hover:-translate-y-1 hover:shadow-xl"
+      className="bg-white flex h-32 hover:-translate-y-1 hover:shadow-xl p-0"
       radius="md"
     >
-      <Card.Section className="flex justify-center p-0">
-        <Image src={eyeCatchImage?.url} width={250} fit="cover" />
-        <Card.Section>
-          <Text size="lg" className="pt-2 pr-8 pl-2">
-            {title}
-          </Text>
+      <Card.Section className="flex">
+        <Image src={eyeCatchImage?.url} width={250} />
+        <Card.Section className="p-8 grid gap-4 lg:gap-6">
+          <Text size="lg">{title}</Text>
 
-          <Card.Section className="flex px-2">
+          <Card.Section className="flex flex-col">
             {tag && (
-              <Badge color="teal" className="px-2">
+              <Badge color="teal" className="max-w-min">
                 {tag}
               </Badge>
             )}
-            <Text size="xs" className="px-2">
-              {day}
-            </Text>
+            <Text size="xs">{day}</Text>
           </Card.Section>
         </Card.Section>
       </Card.Section>
