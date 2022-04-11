@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Blog } from "../../type/type";
 import { getToday } from "../../components/function/Date";
 import { Calendar } from "tabler-icons-react";
+import { Image } from "@mantine/core";
 
 type Props = {
   blog: Blog;
@@ -23,6 +24,9 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
           <ChevronLeft />
         </a>
       </Link>
+      <div className="mt-2">
+        <Image src={blog.eyeCatchImage?.url} fit="cover" radius="sm" />
+      </div>
       <h1 className="py-6 font-bold text-3xl">{blog.title}</h1>
       <div className="mb-4 flex text-gray-400">
         <Calendar />
