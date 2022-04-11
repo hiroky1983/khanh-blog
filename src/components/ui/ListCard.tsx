@@ -21,7 +21,7 @@ export const ListCard: VFC<Props> = (props) => {
   return (
     <Card
       shadow="lg"
-      className="bg-white flex hover:-translate-y-1 hover:shadow-xl p-0 lg:h-26"
+      className="bg-white flex hover:-translate-y-1 hover:shadow-xl p-0 lg:h-32"
       radius="md"
     >
       <Card.Section className="flex">
