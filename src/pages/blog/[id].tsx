@@ -17,7 +17,7 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
   return (
     <div
       key={blog.id}
-      className="bg-white rounded-lg shadow-md mx-auto lg:w-2/3 p-12 h-full overflow-scroll"
+      className="bg-white rounded-lg shadow-md mx-auto lg:w-2/3 lg:p-12 p-6 h-full overflow-scroll"
     >
       <Link href="/">
         <a>
