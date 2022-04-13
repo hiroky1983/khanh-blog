@@ -33,7 +33,7 @@ export const ListCard: VFC<Props> = (props) => {
           />
         </Card.Section>
         <Card.Section className="p-8 grid gap-4 lg:gap-6">
-          <Text size="lg">{title}</Text>
+          <Text size="lg" >{title}</Text>
 
           <Card.Section className="flex flex-col">
             {tag && (
