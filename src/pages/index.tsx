@@ -60,7 +60,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const data = await client.get({ endpoint: "blog" });
   const myData: Profile = await client.get({ endpoint: "profile" });
   const blog: Blog[] = data.contents;
