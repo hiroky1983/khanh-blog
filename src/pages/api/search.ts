@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import { NextApiRequest, NextApiResponse } from "next";
-import { client } from "../../../libs/client";
+import { client } from "../../libs/client";
 import { Blog } from "../../type/type";
 
 const searchApi = async (req: NextApiRequest, res: NextApiResponse) => {

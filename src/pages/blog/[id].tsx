@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { client } from "../../../libs/client";
+import { client } from "../../libs/client";
 import { ChevronLeft } from "tabler-icons-react";
 import Link from "next/link";
 import { Blog } from "../../type/type";

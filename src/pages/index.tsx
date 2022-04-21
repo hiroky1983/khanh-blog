@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { client } from "../../libs/client";
+import { client } from "../libs/client";
 import { ListCard } from "../components/ui/ListCard";
 import { UserCard } from "../components/ui/UserCard";
 import { Blog, Profile } from "../type/type";
