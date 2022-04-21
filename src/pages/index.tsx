@@ -5,8 +5,10 @@ import { ListCard } from "../components/ui/ListCard";
 import { UserCard } from "../components/ui/UserCard";
 import { Blog, Profile } from "../type/type";
 import { Month } from "@mantine/dates";
-import { SearchSecction } from "../components/ui/SearchSecction";
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
+import { Search } from "tabler-icons-react";
+import { Button, Input } from "@mantine/core";
+import { MicroCMSListResponse } from "microcms-js-sdk";
 
 type Props = {
   blog: Blog[];
@@ -15,13 +17,44 @@ type Props = {
 
 const Home: NextPage<Props> = ({ blog, profile }) => {
   // const [date, setDate] = useState(new Date());
+  const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
+  const handleSubmit: ComponentProps<"form">["onSubmit"] = async (e) => {
+    e.preventDefault();
+    const q = e.currentTarget.query.value;
+    const data = await fetch("/api/search", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ q }),
+    });
+    const json: MicroCMSListResponse<Blog> = await data.json();
+    setSearch(json);
+  };
+
+  const contents = search ? search.contents : blog;
 
   return (
     <>
       <div className="lg:flex mx-4">
         <ul className="grid lg:flex-grow lg:justify-center gap-3 pt-16">
-          {/* <SearchSecction /> */}
-          {blog.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
+          <form className="flex" onSubmit={handleSubmit}>
+            <Input
+              icon={<Search />}
+              placeholder="Search Blog Title"
+              className="ml-6"
+              name="query"
+            />
+            <Button className="bg-green-500 rounded-xl mx-4" type="submit">
+              検索
+            </Button>
+            <Button
+              type="reset"
+              className="bg-green-500 rounded-xl"
+              onClick={() => setSearch(undefined)}
+            >
+              リセット
+            </Button>
+          </form>
+          {contents.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
             <>
               <li key={id} className={`lg:w-[499px]`}>
                 <Link href={`/blog/${id}`}>
