@@ -27,6 +27,7 @@
     "yarn": "^1.22.18"
   },
   "devDependencies": {
+    "@types/node": "^17.0.25",
     "@types/react": "^18.0.5",
     "autoprefixer": "^10.2.6",
     "eslint": "^8.11.0",
