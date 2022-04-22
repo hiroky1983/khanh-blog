@@ -36,19 +36,22 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
     <>
       <div className="lg:flex mx-4">
         <ul className="grid lg:flex-grow lg:justify-center gap-3 pt-16">
-          <form className="flex" onSubmit={handleSubmit}>
+          <form className="flex gap-x-2" onSubmit={handleSubmit}>
             <Input
               icon={<Search />}
               placeholder="Search Blog Title"
-              className="ml-6"
               name="query"
+              className="w-full"
             />
-            <Button className="bg-green-500 rounded-xl mx-4" type="submit">
+            <Button
+              className="bg-green-500 hover:bg-green-400 rounded-xl"
+              type="submit"
+            >
               検索
             </Button>
             <Button
               type="reset"
-              className="bg-green-500 rounded-xl"
+              className="bg-green-500 hover:bg-green-400 rounded-xl"
               onClick={() => setSearch(undefined)}
             >
               リセット
