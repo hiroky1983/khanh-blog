@@ -1,4 +1,4 @@
-import { Card, Text, Image } from "@mantine/core";
+import { Card, Text, Image, Group } from "@mantine/core";
 import { VFC } from "react";
 import { getToday } from "../function/Date";
 import { Badge } from "@mantine/core";
@@ -21,30 +21,31 @@ export const ListCard: VFC<Props> = (props) => {
   return (
     <Card
       shadow="lg"
-      className="bg-white hover:-translate-y-1 hover:shadow-xl p-0 lg:max-h-28"
+      p="md"
+      className="bg-white hover:-translate-y-1 hover:shadow-xl p-0 lg:flex"
       radius="md"
     >
-      <Card.Section className="lg:flex">
-        <Card.Section>
-          <Image
-            src={eyeCatchImage?.url}
-            fit="cover"
-            className="lg:w-[250px] h-auto max-h-80"
-          />
-        </Card.Section>
-        <Card.Section className="p-8 grid gap-4 lg:gap-6">
+      <Card.Section>
+        <Image
+          src={eyeCatchImage?.url}
+          fit="cover"
+          className="lg:w-[250px] w-full"
+          height={160}
+          withPlaceholder
+        />
+      </Card.Section>
+      <Group className="p-8 grid gap-4 lg:gap-6">
+        <Card.Section className="flex flex-col">
           <Text size="lg">{title}</Text>
 
-          <Card.Section className="flex flex-col">
-            {tag && (
-              <Badge color="teal" className="max-w-min">
-                {tag}
-              </Badge>
-            )}
-            <Text size="xs">{day}</Text>
-          </Card.Section>
+          {tag && (
+            <Badge color="teal" className="max-w-min">
+              {tag}
+            </Badge>
+          )}
+          <Text size="xs">{day}</Text>
         </Card.Section>
-      </Card.Section>
+      </Group>
     </Card>
   );
 };
