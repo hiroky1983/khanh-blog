@@ -28,11 +28,11 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
         <Image src={blog.eyeCatchImage?.url} fit="cover" radius="sm" />
       </div>
       <h1 className="py-6 font-bold text-3xl">{blog.title}</h1>
-      <div className="mb-4 flex text-gray-400">
+      <p className="mb-4 flex text-gray-400">
         <Calendar />
         {day}
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
+      </p>
+      <article dangerouslySetInnerHTML={{ __html: blog.body }}></article>
     </div>
   );
 };

@@ -34,8 +34,8 @@ export const ListCard: VFC<Props> = (props) => {
           withPlaceholder
         />
       </Card.Section>
-      <Group className="p-6 grid gap-4 lg:gap-6">
-        <Card.Section className="flex flex-col">
+      <Group className="p-6">
+        <Card.Section className="grid gap-y-2">
           <Text size="lg">{title}</Text>
 
           {tag && (
