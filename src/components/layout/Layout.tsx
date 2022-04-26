@@ -10,7 +10,7 @@ export const Layout: VFC<Props> = (props) => {
   return (
     <div className="h-screen text-gray-600">
       <Header />
-      <main className="bg-gray-100 h-auto pb-8">{children}</main>
+      <main className="bg-gray-100 min-h-full p-6">{children}</main>
     </div>
   );
 };

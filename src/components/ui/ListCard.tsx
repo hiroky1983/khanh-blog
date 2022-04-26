@@ -21,7 +21,7 @@ export const ListCard: VFC<Props> = (props) => {
   return (
     <Card
       shadow="lg"
-      p="md"
+      p="sm"
       className="bg-white hover:-translate-y-1 hover:shadow-xl p-0 lg:flex"
       radius="md"
     >
@@ -34,7 +34,7 @@ export const ListCard: VFC<Props> = (props) => {
           withPlaceholder
         />
       </Card.Section>
-      <Group className="p-8 grid gap-4 lg:gap-6">
+      <Group className="p-6 grid gap-4 lg:gap-6">
         <Card.Section className="flex flex-col">
           <Text size="lg">{title}</Text>
 
