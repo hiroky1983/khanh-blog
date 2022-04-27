@@ -7,10 +7,13 @@ class Document extends NextDocument<Props> {
     return (
       <Html lang="vi">
         <Head />
-        <meta name="description" content="カンちゃんのブログです。日本のことを書きます" />
+        <meta
+          name="description"
+          content="カンちゃんのブログです。日本のことを書きます"
+        />
         <meta name="keywords" content="ブログ,日本,日本の文化,日本の生活" />
         <link rel="icon" href="/favicon.ico" />
-        <title>k-blog</title>
+        <title>k-blog | カンちゃんのブログ・サイト </title>
         <body>
           <Main />
           <NextScript />
