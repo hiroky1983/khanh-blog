@@ -7,6 +7,8 @@ class Document extends NextDocument<Props> {
     return (
       <Html lang="vi">
         <Head />
+        <meta name="description" content="かんちゃんのブログです" />
+        <meta name="keywords" content="ブログ,日本,日本の文化,日本の生活" />
         <body>
           <Main />
           <NextScript />
