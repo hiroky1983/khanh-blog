@@ -32,6 +32,7 @@ export const ListCard: VFC<Props> = (props) => {
           className="lg:w-[250px] w-full"
           height={160}
           withPlaceholder
+          alt="ブログのサムネイル画像です"
         />
       </Card.Section>
       <Group className="p-6">

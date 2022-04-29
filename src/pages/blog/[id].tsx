@@ -24,7 +24,7 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
           <ChevronLeft />
         </a>
       </Link>
-      <div className="mt-2">
+      <div className="mt-4">
         <Image src={blog.eyeCatchImage?.url} fit="cover" radius="sm" />
       </div>
       <h1 className="py-6 font-bold text-3xl">{blog.title}</h1>
