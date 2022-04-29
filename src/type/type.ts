@@ -30,3 +30,10 @@ export type Profile = {
   facebookLink?: string;
   tiktokLink?: string;
 };
+
+export type contentType = {
+  name: string;
+  email: string;
+  subject: string;
+  discription: string;
+};
