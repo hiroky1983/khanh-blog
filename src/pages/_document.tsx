@@ -15,7 +15,7 @@ class Document extends NextDocument<Props> {
           name="keywords"
           content="ブログ,日本,日本の文化,日本の生活,ベトナム,ベトナム人,ベトナム語,カンちゃん,カン"
         />
-        <meta name="robots" content="all" />
+        <meta name="robots" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
         <title>k-blog | カンちゃんのブログ・サイト </title>
         <body>
