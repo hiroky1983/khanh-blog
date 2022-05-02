@@ -1,18 +1,34 @@
 import { Button, Select, Textarea, TextInput } from "@mantine/core";
 import { NextPage } from "next";
+import { useRouter } from "next/dist/client/router";
 import { ComponentProps } from "react";
 import { contentType } from "../../type/type";
 
 export const contact: NextPage = () => {
+  const router = useRouter();
   const handleSubmit: ComponentProps<"form">["onSubmit"] = async (e) => {
     e.preventDefault();
-    const data: contentType = {
-      name: e.currentTarget.userName.value,
-      email: e.currentTarget.email.value,
-      subject: e.currentTarget.subject.value,
-      discription: e.currentTarget.discription.value,
-    };
-    console.log(data);
+    try {
+      const data: contentType = {
+        name: e.currentTarget.userName.value,
+        email: e.currentTarget.email.value,
+        subject: e.currentTarget.subject.value,
+        discription: e.currentTarget.discription.value,
+      };
+      const fetcher = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+        body: JSON.stringify(data),
+      });
+
+      if (!fetcher.ok) {
+        throw new Error("送信に失敗しました");
+      }
+      router.push("/contact/success");
+    } catch (error) {
+      console.log(error);
+      router.push("/contact/error");
+    }
   };
   return (
     <div>
