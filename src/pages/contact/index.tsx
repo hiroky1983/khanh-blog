@@ -15,15 +15,17 @@ export const contact: NextPage = () => {
         subject: e.currentTarget.subject.value,
         discription: e.currentTarget.discription.value,
       };
-      const fetcher = await fetch("/api/contact", {
+
+      await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json;charset=utf-8" },
         body: JSON.stringify(data),
+      }).then((res) => {
+        if (!res.ok) throw new Error("送信に失敗しました");
       });
-
-      if (!fetcher.ok) {
-        throw new Error("送信に失敗しました");
-      }
+      // if (!fetcher.ok) {
+      //   throw new Error("送信に失敗しました");
+      // }
       router.push("/contact/success");
     } catch (error) {
       console.log(error);
@@ -35,15 +37,15 @@ export const contact: NextPage = () => {
       <h1>Contact</h1>
       <form onSubmit={handleSubmit}>
         <TextInput
-          placeholder="Your name"
-          label="your name"
+          placeholder="Your name" //
+          label="your name" //
           name="userName"
           required
           lang="vi,en,ja"
         />
         <TextInput
-          placeholder="email address"
-          label="email"
+          placeholder="email address" //
+          label="email" //
           name="email"
           required
           lang="vi,en,ja"
@@ -53,15 +55,15 @@ export const contact: NextPage = () => {
           placeholder="your subject"
           name="subject"
           data={[
-            { value: "お仕事の依頼", label: "お仕事の依頼" },
-            { value: "ブログの内容について", label: "ブログの内容について" },
-            { value: "各種質問", label: "各種質問" },
-            { value: "その他", label: "その他" },
+            { value: "お仕事の依頼", label: "お仕事の依頼" }, //
+            { value: "ブログの内容について", label: "ブログの内容について" }, //
+            { value: "各種質問", label: "各種質問" }, //
+            { value: "その他", label: "その他" }, //
           ]}
         />
         <Textarea
-          placeholder="Your comment"
-          label="Your comment"
+          placeholder="Your comment" //
+          label="Your comment" //
           required
           name="discription"
           lang="vi,en,ja"

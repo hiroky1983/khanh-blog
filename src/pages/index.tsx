@@ -4,7 +4,7 @@ import { client } from "../libs/client";
 import { ListCard } from "../components/ui/ListCard";
 import { UserCard } from "../components/ui/UserCard";
 import { Blog, Profile } from "../type/type";
-import { Month } from "@mantine/dates";
+// import { Month } from "@mantine/dates";
 import { ComponentProps, useState } from "react";
 import { Search } from "tabler-icons-react";
 import { Button, Input } from "@mantine/core";
