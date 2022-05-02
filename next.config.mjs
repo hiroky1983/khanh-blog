@@ -8,9 +8,9 @@ const nextConfig = {
   poweredByHeader: false,
   swcMinify: true,
   // experimental: { concurrentFeatures: true, serverComponents: true },
-  images: {
-    domains: [DOMAIN],
-  },
+  // images: {
+  //   domains: [DOMAIN],
+  // },
   env: {
     API_KEY: process.env.API_KEY,
   },
