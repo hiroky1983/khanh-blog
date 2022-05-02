@@ -31,7 +31,7 @@ export const contact: NextPage = () => {
     }
   };
   return (
-    <div>
+    <div className="w-2/3 mx-auto">
       <h1>Contact</h1>
       <form onSubmit={handleSubmit}>
         <TextInput
@@ -65,9 +65,12 @@ export const contact: NextPage = () => {
           required
           name="discription"
           lang="vi,en,ja"
+          autosize
+          minRows={4}
+          maxRows={6}
         />
         <Button
-          className="bg-green-500 hover:bg-green-400 rounded-xl mt-4"
+          className="bg-green-500 hover:bg-green-400 rounded-md mt-4"
           type="submit"
         >
           送信

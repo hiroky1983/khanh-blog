@@ -44,14 +44,14 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
               className="w-full"
             />
             <Button
-              className="bg-green-500 hover:bg-green-400 rounded-xl"
+              className="bg-green-500 hover:bg-green-400 rounded-md"
               type="submit"
             >
               検索
             </Button>
             <Button
               type="reset"
-              className="bg-green-500 hover:bg-green-400 rounded-xl"
+              className="bg-green-500 hover:bg-green-400 rounded-md"
               onClick={() => setSearch(undefined)}
             >
               リセット
