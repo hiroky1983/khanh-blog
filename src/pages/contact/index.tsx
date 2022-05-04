@@ -33,9 +33,9 @@ export const contact: NextPage = () => {
     }
   };
   return (
-    <div className="w-2/3 mx-auto">
-      <h1>Contact</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="lg:w-1/2 mx-auto">
+      <h1 className="text-4xl font-bold mb-4">Contact</h1>
+      <form onSubmit={handleSubmit} className="grid gap-2">
         <TextInput
           placeholder="Your name" //
           label="your name" //
@@ -73,7 +73,7 @@ export const contact: NextPage = () => {
           maxRows={6}
         />
         <Button
-          className="bg-green-500 hover:bg-green-400 rounded-md mt-4"
+          className="bg-green-500 hover:bg-green-400 rounded-md mt-4 w-20"
           type="submit"
           loading={isSending}
         >
