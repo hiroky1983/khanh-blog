@@ -1,34 +1,34 @@
 import { Button, Select, Textarea, TextInput } from "@mantine/core";
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import { ComponentProps } from "react";
+import { ComponentProps, useState } from "react";
 import { contentType } from "../../type/type";
 
 export const contact: NextPage = () => {
+  const [isSending, setIsSending] = useState<boolean>(false);
   const router = useRouter();
   const handleSubmit: ComponentProps<"form">["onSubmit"] = async (e) => {
+    setIsSending(true);
     e.preventDefault();
     try {
       const data: contentType = {
-        name: e.currentTarget.userName.value,
+        userName: e.currentTarget.userName.value,
         email: e.currentTarget.email.value,
         subject: e.currentTarget.subject.value,
         discription: e.currentTarget.discription.value,
       };
-
       await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       }).then((res) => {
         if (!res.ok) throw new Error("送信に失敗しました");
       });
-      // if (!fetcher.ok) {
-      //   throw new Error("送信に失敗しました");
-      // }
+      setIsSending(false);
       router.push("/contact/success");
     } catch (error) {
       console.log(error);
+      setIsSending(false);
       router.push("/contact/error");
     }
   };
@@ -51,8 +51,9 @@ export const contact: NextPage = () => {
           lang="vi,en,ja"
         />
         <Select
-          label="subject"
           placeholder="your subject"
+          label="subject"
+          required
           name="subject"
           data={[
             { value: "お仕事の依頼", label: "お仕事の依頼" }, //
@@ -74,6 +75,7 @@ export const contact: NextPage = () => {
         <Button
           className="bg-green-500 hover:bg-green-400 rounded-md mt-4"
           type="submit"
+          loading={isSending}
         >
           送信
         </Button>

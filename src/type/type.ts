@@ -32,7 +32,7 @@ export type Profile = {
 };
 
 export type contentType = {
-  name: string;
+  userName: string;
   email: string;
   subject: string;
   discription: string;

@@ -4,9 +4,9 @@ const isContact = (item: unknown): item is contentType => {
   const target = item as contentType;
 
   return (
-    "name" in target &&
-    typeof target.name === "string" &&
-    !!target.name &&
+    "userName" in target &&
+    typeof target.userName === "string" &&
+    !!target.userName &&
     "email" in target &&
     typeof target.email === "string" &&
     !!target.email &&
