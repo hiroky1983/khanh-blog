@@ -2,7 +2,7 @@
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  i18n: { locales: ["ja"], defaultLocale: "ja" },
+  i18n: { locales: ["vi"], defaultLocale: "vi" },
   future: { strictPostcssConfiguration: true },
   reactStrictMode: true,
   poweredByHeader: false,
