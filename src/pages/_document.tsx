@@ -18,6 +18,11 @@ class Document extends NextDocument<Props> {
         <meta name="robots" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
         <title>k-blog | カンちゃんのブログ・サイト </title>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1869410932032409"
+          crossOrigin="anonymous"
+        ></script>
         <body>
           <Main />
           <NextScript />
