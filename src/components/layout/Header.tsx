@@ -1,4 +1,3 @@
-import { Select } from "@mantine/core";
 import Link from "next/link";
 
 export const Header = () => {
