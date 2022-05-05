@@ -11,7 +11,6 @@ export const Adsense = () => {
       console.log(err);
     }
   }, [asPath]);
-
   return (
     <div key={asPath}>
       <ins
@@ -26,7 +25,7 @@ export const Adsense = () => {
         data-ad-format="auto"
         data-ad-client="ca-pub-1869410932032409"
         data-ad-slot="xxx"
-        data-full-width-responsive="true"
+        data-full-width-responsive="false"
       />
     </div>
   );

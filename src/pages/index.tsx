@@ -31,6 +31,8 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
   };
 
   const contents = search ? search.contents : blog;
+  // const [list, setList] = useState(contents);
+  // console.log(list);
 
   return (
     <>
