@@ -1,4 +1,5 @@
 import { VFC } from "react";
+import { Adsense } from "./adsense";
 import { Header } from "./Header";
 
 type Props = {
@@ -11,6 +12,9 @@ export const Layout: VFC<Props> = (props) => {
     <div className="h-screen text-gray-600">
       <Header />
       <main className="bg-gray-100 min-h-full p-6">{children}</main>
+      <footer>
+        <Adsense />
+      </footer>
     </div>
   );
 };
