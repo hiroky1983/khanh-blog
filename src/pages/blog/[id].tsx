@@ -32,7 +32,10 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
         <Calendar />
         {day}
       </p>
-      <article dangerouslySetInnerHTML={{ __html: blog.body }}></article>
+      <article
+        className="prose lg:prose-xl"
+        dangerouslySetInnerHTML={{ __html: blog.body }}
+      ></article>
     </div>
   );
 };
