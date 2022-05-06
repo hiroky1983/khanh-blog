@@ -11,10 +11,15 @@ export const UserCard: VFC<Profile> = (props) => {
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
   return (
-    <div className="w-60 p-auto lg:fixed lg:top-40 lg:right-6">
+    <div className="w-60 p-auto md:fixed md:top-40 md:right-6">
       <Card shadow="sm" p="lg">
         <Card.Section className="flex items-center p-4">
-          <Avatar radius="xl" size={80} src={avater.url} alt="プロフィール画像"/>
+          <Avatar
+            radius="xl"
+            size={80}
+            src={avater.url}
+            alt="プロフィール画像"
+          />
           <Text size="lg" className="ml-4">
             {name}
           </Text>

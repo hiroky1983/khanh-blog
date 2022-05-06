@@ -37,7 +37,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
   return (
     <>
       <div className="lg:flex mx-4">
-        <ul className="grid lg:flex-grow lg:justify-center gap-3 pt-16">
+        <ul className="grid w-full md:w-2/3 lg:flex-grow lg:justify-center gap-3 pt-16">
           <form className="flex gap-x-2" onSubmit={handleSubmit}>
             <Input
               icon={<Search />}
@@ -76,7 +76,7 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             </>
           ))}
         </ul>
-        <div className="hidden lg:relative lg:block">
+        <div className="hidden md:relative md:block">
           <UserCard
             name={profile.name}
             avater={profile.avater}
