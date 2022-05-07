@@ -1,11 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client } from "../../libs/client";
-import { ChevronLeft } from "tabler-icons-react";
+import { ChevronLeft, ChevronRight } from "tabler-icons-react";
 import Link from "next/link";
 import { Blog } from "../../type/type";
 import { getToday } from "../../components/function/Date";
 import { Calendar } from "tabler-icons-react";
 import { Image } from "@mantine/core";
+import { useGetBlog } from "../../components/function/getBlogList";
 
 type Props = {
   blog: Blog;
@@ -13,6 +14,7 @@ type Props = {
 
 export const BlogPage: NextPage<Props> = ({ blog }) => {
   const day = getToday(blog.createdAt).yearToDate;
+  // const { prev, next } = useGetBlog(blog)
 
   return (
     <div
@@ -36,6 +38,20 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
         className="prose lg:prose-xl"
         dangerouslySetInnerHTML={{ __html: blog.body }}
       ></article>
+      <div className="flex justify-between text-xl mt-10">
+        <Link href={`/`}>
+          <a className="flex">
+            <ChevronLeft />
+            次へ
+          </a>
+        </Link>
+        <Link href={`/`}>
+          <a className="flex">
+            前へ
+            <ChevronRight />
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };
