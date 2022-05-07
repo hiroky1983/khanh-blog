@@ -5,16 +5,22 @@ import Link from "next/link";
 import { Blog } from "../../type/type";
 import { getToday } from "../../components/function/Date";
 import { Calendar } from "tabler-icons-react";
-import { Image } from "@mantine/core";
-import { useGetBlog } from "../../components/function/getBlogList";
+import { Button, Image } from "@mantine/core";
+import { useRouter } from "next/router";
 
 type Props = {
   blog: Blog;
+  blogList: Blog[];
 };
 
-export const BlogPage: NextPage<Props> = ({ blog }) => {
+export const BlogPage: NextPage<Props> = ({ blog, blogList }) => {
   const day = getToday(blog.createdAt).yearToDate;
-  // const { prev, next } = useGetBlog(blog)
+  const router = useRouter();
+  const index = blogList.findIndex((content) => content.id === blog.id);
+  const prev = blogList[index - 1];
+  const next = blogList[index + 1];
+  const prevId = prev ? prev.id : undefined;
+  const nextId = next ? next.id : undefined;
 
   return (
     <div
@@ -38,19 +44,23 @@ export const BlogPage: NextPage<Props> = ({ blog }) => {
         className="prose lg:prose-xl"
         dangerouslySetInnerHTML={{ __html: blog.body }}
       ></article>
-      <div className="flex justify-between text-xl mt-10">
-        <Link href={`/`}>
-          <a className="flex">
-            <ChevronLeft />
-            次へ
-          </a>
-        </Link>
-        <Link href={`/`}>
-          <a className="flex">
-            前へ
-            <ChevronRight />
-          </a>
-        </Link>
+      <div className="flex justify-between text-xl mt-20">
+        <Button
+          disabled={prevId === undefined}
+          onClick={() => router.push(`/blog/${prevId}`)}
+          className="bg-white hover:bg-gray-100 text-[#374151] text-lg"
+        >
+          <ChevronLeft />
+          次のブログへ
+        </Button>
+        <Button
+          disabled={nextId === undefined}
+          onClick={() => router.push(`/blog/${nextId}`)}
+          className="bg-white hover:bg-gray-100 text-[#374151] text-lg"
+        >
+          前のブログへ
+          <ChevronRight />
+        </Button>
       </div>
     </div>
   );
@@ -70,9 +80,15 @@ export const getStaticProps: GetStaticProps<{}, { id: string }> = async (
     endpoint: "blog",
     contentId: id,
   });
+  const blogList: { contents: Blog[] } = await client.get({
+    endpoint: "blog",
+    queries: { limit: 1000, fields: "id,title" },
+  });
+
   return {
     props: {
       blog: data,
+      blogList: blogList.contents,
     },
   };
 };
