@@ -22,8 +22,6 @@ export const BlogPage: NextPage<Props> = ({ blog, blogList }) => {
   const next = blogList[index + 1];
   const prevId = prev ? prev.id : undefined;
   const nextId = next ? next.id : undefined;
-  const a = router.basePath;
-  console.log(a);
 
   return (
     <div
@@ -65,7 +63,7 @@ export const BlogPage: NextPage<Props> = ({ blog, blogList }) => {
           <ChevronRight />
         </Button>
       </div>
-      <SnsButton url={`https://k-blog-nine.vercel.app//blog/${blog.id}`} />
+      <SnsButton url={`https://k-blog-nine.vercel.app/blog/${blog.id}`} />
     </div>
   );
 };
