@@ -7,6 +7,7 @@ import { getToday } from "../../components/function/Date";
 import { Calendar } from "tabler-icons-react";
 import { Button, Image } from "@mantine/core";
 import { useRouter } from "next/router";
+import SnsButton from "../../components/ui/SnsButton";
 
 type Props = {
   blog: Blog;
@@ -21,6 +22,8 @@ export const BlogPage: NextPage<Props> = ({ blog, blogList }) => {
   const next = blogList[index + 1];
   const prevId = prev ? prev.id : undefined;
   const nextId = next ? next.id : undefined;
+  const a = router.basePath;
+  console.log(a);
 
   return (
     <div
@@ -62,6 +65,7 @@ export const BlogPage: NextPage<Props> = ({ blog, blogList }) => {
           <ChevronRight />
         </Button>
       </div>
+      <SnsButton url={`https://k-blog-nine.vercel.app//blog/${blog.id}`} />
     </div>
   );
 };
