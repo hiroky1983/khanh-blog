@@ -4,13 +4,13 @@ import React, { useEffect } from "react";
 export const Adsense = () => {
   const { asPath } = useRouter();
 
-  useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.log(err);
-    }
-  }, [asPath]);
+  // useEffect(() => {
+  //   try {
+  //     (window.adsbygoogle = window.adsbygoogle || []).push({});
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }, [asPath]);
   return (
     <div key={asPath}>
       <ins
