@@ -58,20 +58,18 @@ const Home: NextPage<Props> = ({ blog, profile }) => {
             </Button>
           </form>
           {contents.map(({ id, title, eyeCatchImage, createdAt, tag }) => (
-            <>
-              <li key={id} className={`lg:w-[499px]`}>
-                <Link href={`/blog/${id}`}>
-                  <a>
-                    <ListCard
-                      title={title}
-                      eyeCatchImage={eyeCatchImage}
-                      createdAt={createdAt}
-                      tag={tag}
-                    />
-                  </a>
-                </Link>
-              </li>
-            </>
+            <li key={id} className={`lg:w-[499px]`}>
+              <Link href={`/blog/${id}`}>
+                <a>
+                  <ListCard
+                    title={title}
+                    eyeCatchImage={eyeCatchImage}
+                    createdAt={createdAt}
+                    tag={tag}
+                  />
+                </a>
+              </Link>
+            </li>
           ))}
         </ul>
         <div className="hidden md:relative md:block">
