@@ -30,7 +30,7 @@ export const BlogPage: NextPage<Props> = ({ blog, blogList }) => {
     >
       <Link href="/">
         <a>
-          <ChevronLeft />
+          <ChevronLeft size={30} />
         </a>
       </Link>
       <div className="mt-4">
